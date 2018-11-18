@@ -1,0 +1,6 @@
+security:
+  ignored:
+  - "*.bundle.*"
+
+  security:
+    sessions: NEVER
