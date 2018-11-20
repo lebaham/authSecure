@@ -61,7 +61,7 @@ public class AuthRestAPIs {
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Valid @RequestBody SignUpForm signUpRequest) {
-        if (userRepository.existsByUserName(signUpRequest.getUserName())) {
+        if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return new ResponseEntity<>(new ResponseMessage("Fail -> Username is already taken!"),
                     HttpStatus.BAD_REQUEST);
         }
@@ -73,7 +73,7 @@ public class AuthRestAPIs {
 
         // Creating user's account
         User user = new User(signUpRequest.getEmail(),
-                signUpRequest.getUserName(),
+                signUpRequest.getUsername(),
                 encoder.encode(signUpRequest.getPassword()),signUpRequest.getAge(),signUpRequest.getTelephone());
 
         Set<String> strRoles = signUpRequest.getRole();

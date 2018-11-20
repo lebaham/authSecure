@@ -1,5 +1,6 @@
 package com.authentification.spring.angular.auth.angular.model;
 
+import com.sun.istack.internal.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.NaturalId;
 
@@ -25,14 +26,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUser;
     @NaturalId
-    @NotBlank
+    @NotNull
     @Size(max = 50)
     @Email
     private String email;
-    @NotBlank
+    @NotNull
     @Size(min=3, max = 50)
-    private String userName;
-    @NotBlank
+    private String username;
+    @NotNull
     @Size(min=6, max = 100)
     private String password;
     private int age;
@@ -46,10 +47,10 @@ public class User {
     public User() {
     }
 
-    public User(@NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(min = 3, max = 50) String userName,
-                @NotBlank @Size(min = 6, max = 100) String password, int age, String telephone) {
+    public User(@NotBlank @Size(max = 50) @NotNull@Email String email, @NotNull@Size(min = 3, max = 50) String userName,
+                @NotNull @Size(min = 6, max = 100) String password, int age, String telephone) {
         this.email = email;
-        this.userName = userName;
+        this.username = userName;
         this.password = password;
         this.age = age;
         this.telephone = telephone;
@@ -71,12 +72,12 @@ public class User {
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

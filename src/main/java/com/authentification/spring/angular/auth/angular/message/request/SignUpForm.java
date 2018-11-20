@@ -21,7 +21,7 @@ public class SignUpForm {
     private String email;
     @NotBlank
     @Size(min=3, max = 50)
-    private String userName;
+    private String username;
     @NotBlank
     @Size(min=6, max = 100)
     private String password;
@@ -45,12 +45,12 @@ public class SignUpForm {
         this.email = email;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public String getPassword() {
